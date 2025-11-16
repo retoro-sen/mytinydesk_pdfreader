@@ -5,6 +5,8 @@ env/
 
 # Ignore specific files
 *.png
+!icon*.png
+index.html
 
 # Generated starter scripts
 start_pdfreader.sh

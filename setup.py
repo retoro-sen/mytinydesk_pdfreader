@@ -244,6 +244,18 @@ def create_desktop_entry(os_type):
     
     current_dir = Path.cwd().resolve()
     
+    # Suche nach Icon-Datei im Projekt
+    icon_path = None
+    for ext in ['.png', '.ico', '.svg', '.xpm']:
+        potential_icon = current_dir / f'icon{ext}'
+        if potential_icon.exists():
+            icon_path = potential_icon
+            break
+    
+    if not icon_path:
+        # Fallback Icons
+        print_info("Kein Icon gefunden. Verwende System-Icon.")
+    
     if os_type == "Linux":
         # Linux .desktop Datei
         desktop_dir = Path.home() / '.local' / 'share' / 'applications'
@@ -254,13 +266,19 @@ def create_desktop_entry(os_type):
         # Versuche Projektname aus Ordner zu ermitteln
         project_name = current_dir.name.replace('_', ' ').title()
         
+        # Icon-Pfad für .desktop Datei
+        if icon_path:
+            icon_value = str(icon_path)
+        else:
+            icon_value = 'application-pdf'  # System-Icon als Fallback
+        
         content = f"""[Desktop Entry]
 Version=1.0
 Type=Application
 Name={project_name}
 Comment=Leichtgewichtiger PDF-Viewer
 Exec={current_dir / '.venv' / 'bin' / 'python'} {current_dir / 'main.py'}
-Icon=application-pdf
+Icon={icon_value}
 Terminal=false
 Categories=Office;Viewer;
 Keywords=pdf;viewer;
@@ -279,6 +297,8 @@ Keywords=pdf;viewer;
                 pass
             
             print_success(f"Desktop-Launcher erstellt: {desktop_file}")
+            if icon_path:
+                print_success(f"Icon verwendet: {icon_path}")
             print_info(f"Anwendung erscheint im Anwendungsmenü als '{project_name}'")
             return True
             
@@ -300,10 +320,18 @@ Keywords=pdf;viewer;
             shortcut.Targetpath = str(current_dir / '.venv' / 'Scripts' / 'python.exe')
             shortcut.Arguments = str(current_dir / 'main.py')
             shortcut.WorkingDirectory = str(current_dir)
-            shortcut.IconLocation = 'shell32.dll,1'  # PDF Icon
+            
+            # Icon setzen
+            if icon_path and icon_path.suffix == '.ico':
+                shortcut.IconLocation = str(icon_path)
+            else:
+                shortcut.IconLocation = 'shell32.dll,1'  # PDF Icon als Fallback
+            
             shortcut.save()
             
             print_success(f"Desktop-Verknüpfung erstellt: {shortcut_path}")
+            if icon_path and icon_path.suffix == '.ico':
+                print_success(f"Icon verwendet: {icon_path}")
             return True
             
         except ImportError:
@@ -318,6 +346,9 @@ Keywords=pdf;viewer;
         # macOS .app Bundle (vereinfacht)
         print_info("Auf macOS: Verwende start_pdfreader.sh oder füge zu Dock hinzu")
         print_info(f"Pfad: {current_dir / 'start_pdfreader.sh'}")
+        if icon_path:
+            print_info(f"Icon gefunden: {icon_path}")
+            print_info("Für macOS .app Bundle müsste eine .icns Datei erstellt werden")
         return True
     
     return False
