@@ -1,0 +1,7 @@
+# myTinyDesk - Python Dependencies
+
+# PDF Rendering
+PyMuPDF>=1.23.0
+
+# Image Processing
+Pillow>=10.0.0
