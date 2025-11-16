@@ -31,28 +31,60 @@ Ein leichtgewichtiger, ressourcenschonender PDF-Viewer mit GUI, entwickelt in Py
 
 ## 🚀 Installation
 
-### 1. Repository klonen
+### ⚡ Schnelle Installation (Empfohlen)
+
+Das automatische Setup-Script kümmert sich um alles:
+
+```bash
+git clone https://github.com/retoro-sen/mytinydesk_pdfreader.git
+cd mytinydesk_pdfreader
+python3 setup.py
+```
+
+Das Script erledigt automatisch:
+- ✓ Erkennt dein Betriebssystem (Linux/Windows/macOS)
+- ✓ Prüft Python-Version
+- ✓ Installiert Tkinter (falls nötig, mit Bestätigung)
+- ✓ Erstellt virtuelle Umgebung
+- ✓ Liest requirements.txt und installiert alle Dependencies
+- ✓ Erstellt Starter-Script (`start_pdfreader.sh` / `start_pdfreader.bat`)
+- ✓ Testet die Installation
+
+### 🔧 Manuelle Installation
+
+Falls du lieber manuell installieren möchtest:
+
+#### 1. Repository klonen
 
 ```bash
 git clone https://github.com/retoro-sen/mytinydesk_pdfreader.git
 cd mytinydesk_pdfreader
 ```
 
-### 2. Tkinter installieren (falls nicht vorhanden)
+#### 2. Tkinter installieren (falls nicht vorhanden)
 
 ```bash
+# Debian/Ubuntu
 sudo apt-get update
 sudo apt-get install -y python3-tk
+
+# Fedora/RHEL
+sudo dnf install python3-tkinter
+
+# Arch
+sudo pacman -S tk
 ```
 
-### 3. Virtuelle Umgebung erstellen (empfohlen)
+#### 3. Virtuelle Umgebung erstellen (empfohlen)
 
 ```bash
 python3 -m venv .venv
-source .venv/bin/activate
+source .venv/bin/activate  # Linux/macOS
+# oder
+.venv\Scripts\activate  # Windows
 ```
 
-### 4. Abhängigkeiten installieren
+#### 4. Abhängigkeiten installieren
 
 ```bash
 pip install -r requirements.txt
@@ -62,13 +94,16 @@ pip install -r requirements.txt
 
 ### Starten der Anwendung
 
+**Nach automatischer Installation:**
 ```bash
-python3 main.py
+./start_pdfreader.sh    # Linux/macOS
+start_pdfreader.bat     # Windows
 ```
 
-Oder mit aktivierter virtueller Umgebung:
-
+**Oder manuell:**
 ```bash
+python3 main.py
+# oder mit venv:
 .venv/bin/python main.py
 ```
 
@@ -90,10 +125,15 @@ Oder mit aktivierter virtueller Umgebung:
 
 ```
 pythongui/
-├── main.py              # Hauptanwendung (myTinyDesk)
-├── requirements.txt     # Python-Abhängigkeiten
-├── README.md           # Diese Datei
-└── .venv/              # Virtuelle Umgebung (nach Installation)
+├── main.py                 # Hauptanwendung (myTinyDesk)
+├── setup.py                # Automatisches Setup-Script
+├── start_pdfreader.sh      # Starter-Script (Linux/macOS, nach Setup)
+├── start_pdfreader.bat     # Starter-Script (Windows, nach Setup)
+├── requirements.txt        # Python-Abhängigkeiten
+├── VERSION                 # Versionsnummer
+├── CHANGELOG.md            # Änderungsprotokoll
+├── README.md               # Diese Datei
+└── .venv/                  # Virtuelle Umgebung (nach Installation)
 ```
 
 ## 🔧 Technische Details

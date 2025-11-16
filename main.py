@@ -5,7 +5,7 @@ from PIL import Image, ImageTk
 import fitz  # PyMuPDF
 import io
 
-__version__ = "0.2.1"
+__version__ = "0.3.0"
 
 class MyTinyDesk:
     def __init__(self, root):

@@ -7,6 +7,10 @@ env/
 *.png
 index.html
 
+# Generated starter scripts
+start_pdfreader.sh
+start_pdfreader.bat
+
 # Python
 __pycache__/
 *.py[cod]
