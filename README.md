@@ -34,8 +34,8 @@ Ein leichtgewichtiger, ressourcenschonender PDF-Viewer mit GUI, entwickelt in Py
 ### 1. Repository klonen
 
 ```bash
-git clone https://github.com/yourusername/pythongui.git
-cd pythongui
+git clone https://github.com/retoro-sen/mytinydesk_pdfreader.git
+cd mytinydesk_pdfreader
 ```
 
 ### 2. Tkinter installieren (falls nicht vorhanden)
