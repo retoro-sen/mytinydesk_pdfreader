@@ -1,33 +1,38 @@
 # myTinyDesk
 
-Ein leichtgewichtiger, ressourcenschonender PDF-Viewer mit GUI, entwickelt in Python mit Tkinter. Ideal für Terminalserver und Desktop-Umgebungen.
+Ein leichtgewichtiger, ressourcenschonender PDF-Viewer mit GUI, entwickelt in Python mit Tkinter. Ideal für Terminalserver, Desktop-Umgebungen und alle gängigen Betriebssysteme.
 
 ![Python](https://img.shields.io/badge/python-3.12+-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
-![Platform](https://img.shields.io/badge/platform-Linux-lightgrey.svg)
+![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20Windows%20%7C%20macOS-lightgrey.svg)
 
 ## ✨ Features
 
 - 📂 **PDF direkt in der App anzeigen** - Keine externen Programme nötig
-- 🔍 **Zoom-Funktionen** - Stufenlos zwischen 40% und 300%
+- � **Direkte Seitennavigation** - Eingabefeld zum Springen zu beliebigen Seiten
+- �🔍 **Zoom-Funktionen** - Stufenlos zwischen 40% und 300%
 - ⚡ **Schnelle Navigation** - Vor/Zurück durch Seiten mit Buttons oder Tastatur
 - 🎨 **Moderne UI** - Dunkle Toolbar mit intuitiver Bedienung
 - ⌨️ **Keyboard-Shortcuts** - Pfeiltasten, Page Up/Down, +/- für Zoom
 - 💾 **Ressourcenschonend** - Rendert nur die aktuelle Seite
 - 🖥️ **Terminalserver-tauglich** - Minimaler Speicher- und CPU-Verbrauch
+- 🚀 **Ein-Klick Setup** - Automatisches Setup-Script für alle Plattformen
+- 🖥️ **Desktop-Integration** - Optional: Desktop-Launcher/Shortcuts
 
 ## 🎯 Anwendungsfälle
 
 - Schnelles Betrachten von PDFs ohne schwere Desktop-Anwendungen
-- Deployment auf Terminalservern mit vielen gleichzeitigen Benutzern
+- Deployment auf Terminalservern (RDS, Citrix) mit vielen gleichzeitigen Benutzern
+- Windows Server 2019/2022 Umgebungen
 - Eingebetteter PDF-Viewer für eigene Python-Anwendungen
 - Ressourcenschonende Alternative zu Adobe Reader, Evince, etc.
+- Cross-Platform Einsatz (Linux, Windows, macOS)
 
 ## 📋 Voraussetzungen
 
-- **Python 3.12+** (funktioniert auch mit 3.8+)
-- **Tkinter** (meist vorinstalliert, sonst siehe Installation)
-- **Linux** (Ubuntu, Debian, etc.) - Windows/macOS mit kleinen Anpassungen möglich
+- **Python 3.8+** (empfohlen: 3.12+)
+- **Tkinter** (meist vorinstalliert, ansonsten automatisch installiert)
+- **Linux, Windows 10/11, Windows Server 2019/2022, oder macOS**
 
 ## 🚀 Installation
 
