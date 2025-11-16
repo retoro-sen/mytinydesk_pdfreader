@@ -2,7 +2,10 @@
 
 Alle wichtigen Änderungen an diesem Projekt werden in dieser Datei dokumentiert.
 
-## [Unreleased] - 2025-11-16
+Das Format basiert auf [Keep a Changelog](https://keepachangelog.com/de/1.0.0/),
+und dieses Projekt folgt [Semantic Versioning](https://semver.org/lang/de/).
+
+## [0.2.0] - 2025-11-16
 
 ### Added
 - Seitennummer-Eingabefeld im Toolbar hinzugefügt
